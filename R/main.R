@@ -10,10 +10,13 @@ V1.idNames=c("LP"  ,"temperature", "temperatureABS"         , "tempInv"  , "seeb
 V2 = read.table (file = "MPT-lambda_table.txt", sep = "\t", encoding = "UTF-8",header = T)
 
 names(V1) = V1.idNames
-result = V1
+lineared = V1
+splined = V1
 
 #reinseting Lambda column
-result$Lambda = interpolate(x_in = V2$Temperature, y_in = V2$Lambda, x_out = V1$temperature)$y
+lineared$Lambda = interpolate(x_in = V2$Temperature, y_in = V2$Lambda, x_out = V1$temperature, method = "linear")
+splined$Lambda = interpolate(x_in = V2$Temperature, y_in = V2$Lambda, x_out = V1$temperature, method = "spline")
 
 #recalculating ZT parameter
-result$ZT = (result$seebeck/10e6)^2*result$swl/result$Lambda*result$temperatureABS
+splined$ZT  = (splined$seebeck/10e6)^2*splined$swl/splined$Lambda*splined$temperatureABS
+lineared$ZT = (lineared$seebeck/10e6)^2*lineared$swl/lineared$Lambda*lineared$temperatureABS
