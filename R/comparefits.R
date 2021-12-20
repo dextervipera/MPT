@@ -25,4 +25,14 @@ dev.off()
 #Plot chart showing the materials parameters
 source(file = "plotlib.R")
 parameterplot(x = lineared$temperature, y = lineared$seebeck,
-              xlab = "Temperature [°C]", ylab = "Seebeck [µV/K]", filename = "results/P01-USeeb-T.png", divide = "auto")
+              xlab = "Temperature [°C]", ylab = "Seebeck [µV/K]", 
+              filename = "results/P01-USeeb-T.png")
+parameterplot(x = lineared$temperature, y = lineared$swl,
+              xlab = "Temperature [°C]", ylab = "Conductivity [S/m]", 
+              filename = "results/P02-SWL-T.png")
+parameterplot(x = lineared$temperature, y = lineared$Lambda, divide = "no",
+              xlab = "Temperature [°C]", ylab = "Heat cond [W/mK]", 
+              filename = "results/P03-Lambda-T.png")
+parameterplot(x = lineared$temperature, y = lineared$ZT,
+              xlab = "Temperature [°C]", ylab = "ZT [-]", 
+              filename = "results/P03-ZT-T.png")
