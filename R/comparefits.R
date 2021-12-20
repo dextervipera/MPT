@@ -9,7 +9,8 @@ resultdiff = splined$Lambda - lineared$Lambda
 y.range = max(resultdiff)- min(resultdiff)
 y.gnd = min (resultdiff)
 
-png(filename = "G01-RelativeErr-comp.png")
+#Plot basic chart showing the difference between splined and liearly interpolated data
+png(filename = "plot/G01-RelativeErr-comp.png")
 plot (x = splined$temperature, y = resultdiff/splined$Lambda*mlt, type = 'p', 
       xlim = c(out.start-1, out.end+1), ylim = c(-2,2),
       ylab = "relative err [%]", xlab = "Independent variable",
@@ -19,4 +20,14 @@ points(x = V2$Temperature, y = rep(x = (y.gnd-12*y.range)*mlt, length = 6), pch 
 grid()
 legend(0,2,legend=c("Difference", "V1.x", "V2.x"),
        col=c("red","red", "blue"), pch=c(1,3,4), cex=1)
+dev.off()
+
+#Plot chart showing the materials parameters
+png(filename = "results/P01-USeeb-T.png")
+plot (x = lineared$temperature[1:11], y = lineared$seebeck[1:11], 
+      xlab = "Temperature [°C]", ylab = "Seebeck [uV/K]",
+      type = 'p',lwd = 2, pch = 1, cex = 2, col = "red")
+points(x = lineared$temperature[11:21], y = lineared$seebeck[11:21],
+       lwd = 2, pch = 1, cex = 2, col = "blue")
+grid()
 dev.off()
