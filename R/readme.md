@@ -40,9 +40,21 @@ Yes, but it can fabricate data that was not measured. I think that, in case of h
 I wanted to show the difference outside the measurement range. It can be disabled. 
 ### Experimental data
 **The included experimental data came from two diffrent samples, so in real life they can not be aligned.**
-The resulted plots with comparisions of aligned parameters are shown below
 
-<img src="plot/G01-RelativeErr[Co-Ln]-comp.png" width = "400">
-<img src="plot/G01-RelativeErr[Sp-Co]-comp.png" width = "400">
-<img src="plot/G01-RelativeErr[Sp-Ln]-comp.png" width = "400">
-Both *Spline* and *Linear* approximations give simmilar results inside measurement range.
+The resulted plots with comparisions of aligned parameters are shown below
+ <table>
+  <tr>
+    <th>Constant-Linear</th>
+    <th>Spline-Constant</th>
+    <th>Spline-Linear</th>
+  </tr>
+  <tr>
+    <td><img src="plot/G01-RelativeErr[Co-Ln]-comp.png" width = "300"></td>
+    <td><img src="plot/G01-RelativeErr[Sp-Co]-comp.png" width = "300"></td>
+    <td><img src="plot/G01-RelativeErr[Sp-Ln]-comp.png" width = "300"></td>
+  </tr>
+</table> 
+
+
+
+Both **Spline** and **Linear** approximations give simmilar results inside measurement range.
