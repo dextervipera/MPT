@@ -12,11 +12,13 @@ V2 = read.table (file = "MPT-lambda_table.txt", sep = "\t", encoding = "UTF-8",h
 names(V1) = V1.idNames
 lineared = V1
 splined = V1
-
+constant = V1
 #reinseting Lambda column
+constant$Lambda = interpolate(x_in = V2$Temperature, y_in = V2$Lambda, x_out = V1$temperature, method = "constant")
 lineared$Lambda = interpolate(x_in = V2$Temperature, y_in = V2$Lambda, x_out = V1$temperature, method = "linear")
 splined$Lambda = interpolate(x_in = V2$Temperature, y_in = V2$Lambda, x_out = V1$temperature, method = "spline")
 
 #recalculating ZT parameter
+constant$ZT  = (constant$seebeck/10e6)^2*constant$swl/constant$Lambda*constant$temperatureABS
 splined$ZT  = (splined$seebeck/10e6)^2*splined$swl/splined$Lambda*splined$temperatureABS
 lineared$ZT = (lineared$seebeck/10e6)^2*lineared$swl/lineared$Lambda*lineared$temperatureABS
