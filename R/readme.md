@@ -35,9 +35,13 @@ y_spl = interpolate(x_in = xT, y_in = yT, x_out = x_vec, method = "spline")
 ## Real data example
 ### FAQ
 1. Is extrapolation outside of measurement range discullable
+2. 
 Yes, but it can fabricate data that was not measured. I think that, in case of highly inpredictible semiconductor materials, it is better not to extrapolate, or, if You have to do it (eg. in case of Your Supervisor) its **much better to take the boundary value**
+
 2. Why extrapolation occurs on spline and is disabled in linear approximation
+3. 
 I wanted to show the difference outside the measurement range. It can be disabled. 
+
 ### Experimental data
 **The included experimental data came from two diffrent samples, so in real life they can not be aligned.**
 
