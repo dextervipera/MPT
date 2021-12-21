@@ -1,6 +1,9 @@
 interpolate <- function(x_in, y_in, x_out, method = "linear")
 {
   #https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/approxfun
+  if (method == "constant"){
+    interpolate = approx(x=x_in ,y=y_in ,xout = x_out, rule = 2, method = "constant")$y
+  } else
   if (method == "linear")
   {
     interpolate = approx(x=x_in ,y=y_in ,xout = x_out, rule = 2)$y
