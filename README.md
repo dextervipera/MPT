@@ -6,6 +6,10 @@ Standard data aligment problemm there are a few data measurement fies and the me
 - [x] recalculate 
 - [ ] visualize, prepare corrected tables as csv in the known format
 
+## Syntax and technical tools used
+1. R is used to implement math behind aligment.
+2. R source explanation can be found [here](R/readme.md)
+
 # Possible solutions
 1. Ignore the offsets and align to the nearest
 2. Align by linear interpolation
