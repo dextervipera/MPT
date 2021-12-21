@@ -1,4 +1,4 @@
-# File structure
+# Project structure
 
 # What if?
 
