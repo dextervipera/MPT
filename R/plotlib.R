@@ -8,7 +8,7 @@ yrange = max(y)-min(y)
 xlim = c(min(x)-xmargin*xrange,max(x)+xmargin*xrange)
 ylim = c(min(y)-ymargin*yrange,max(y)+ymargin*yrange)
 
-  if (divide == "auto") x_div = which.max(x)
+  xif (divide == "auto") x_div = which.max(x)
   print(x_div)
   if (filename!=":prev") png(filename = filename)
   plot(x=x[1:x_div],y=y[1:x_div],
