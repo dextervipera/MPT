@@ -1,4 +1,5 @@
 from finterpolate import seebtest_v01_interp, seebtest_v01_recalczt
+from dict_SeebTest import dictST as dST
 import pandas as pd
 from matplotlib import pyplot as plt
 
@@ -19,8 +20,8 @@ class SeebTestContainer:
     def debug_memory(self):
         print(self.electrical.columns, self.electrical.iloc[0, 2])
 
-    def plot(self):
+    def plot(self, mode="dafault"):
         self.fig, self.ax = plt.subplots()
 
-        plt.plot(self.electrical.iloc[:,1], self.electrical.iloc[:, 26])
+        plt.plot(self.electrical.iloc[:,dST['temperature']], self.electrical.iloc[:, dST['ZT']])
         plt.show()
